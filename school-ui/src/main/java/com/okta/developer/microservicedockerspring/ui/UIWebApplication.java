@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 
 @SpringBootApplication
 public class UIWebApplication implements WebMvcConfigurer {
@@ -16,6 +17,7 @@ public class UIWebApplication implements WebMvcConfigurer {
 
 
 	@Bean
+	@LoadBalanced
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}

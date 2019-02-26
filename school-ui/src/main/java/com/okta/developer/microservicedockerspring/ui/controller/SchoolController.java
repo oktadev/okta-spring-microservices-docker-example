@@ -21,12 +21,10 @@ public class SchoolController {
 
     private final RestTemplate restTemplate;
 
-    private final String serviceHost;
 
     @Autowired
-    public SchoolController(RestTemplate restTemplate, @Value("${service.host}") String serviceHost) {
+    public SchoolController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
-        this.serviceHost = serviceHost;
     }
 
     @RequestMapping("")
@@ -38,7 +36,7 @@ public class SchoolController {
     public ResponseEntity<List<TeachingClassDto>> listClasses(){
 
         return restTemplate
-                .exchange("http://"+ serviceHost +"/class", HttpMethod.GET, null,
+                .exchange("http://school-service/class", HttpMethod.GET, null,
                         new ParameterizedTypeReference<List<TeachingClassDto>>() {});
 
     }
