@@ -2,11 +2,10 @@ package com.okta.developer.microservicedockerspring.ui.controller;
 
 
 import com.okta.developer.microservicedockerspring.ui.dto.TeachingClassDto;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,23 +20,22 @@ public class SchoolController {
 
     private final RestTemplate restTemplate;
 
-
-    @Autowired
     public SchoolController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
     @RequestMapping("")
-    public ModelAndView index(){
+    public ModelAndView index() {
         return new ModelAndView("index");
     }
 
     @GetMapping("/classes")
-    public ResponseEntity<List<TeachingClassDto>> listClasses(){
+    @PreAuthorize("#oauth2.hasAnyScope('profile')")
+    public ResponseEntity<List<TeachingClassDto>> listClasses() {
 
         return restTemplate
                 .exchange("http://school-service/class", HttpMethod.GET, null,
-                        new ParameterizedTypeReference<List<TeachingClassDto>>() {});
-
+                        new ParameterizedTypeReference<List<TeachingClassDto>>() {
+                        });
     }
 }

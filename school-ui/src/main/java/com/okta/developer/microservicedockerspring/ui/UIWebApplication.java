@@ -15,13 +15,11 @@ public class UIWebApplication implements WebMvcConfigurer {
 		SpringApplication.run(UIWebApplication.class, args);
 	}
 
-
 	@Bean
 	@LoadBalanced
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
-
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
