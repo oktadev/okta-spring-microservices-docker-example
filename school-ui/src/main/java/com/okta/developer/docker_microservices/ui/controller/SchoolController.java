@@ -29,7 +29,7 @@ public class SchoolController {
     }
 
     @GetMapping("/classes")
-    @PreAuthorize("#oauth2.hasAnyScope('profile')")
+    @PreAuthorize("#oauth2.hasAnyScope('SCOPE_profile')")
     public ResponseEntity<List<TeachingClassDto>> listClasses() {
 
         return restTemplate
