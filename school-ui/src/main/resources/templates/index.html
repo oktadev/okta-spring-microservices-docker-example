@@ -11,12 +11,12 @@
     <title>Hello, world!</title>
 </head>
 <body>
-<nav class="nvbar nvbar-default">
+<nav class="navbar navbar-default">
     <form method="post" th:action="@{/logout}" th:if="${#authorization.expression('isAuthenticated()')}" class="navbar-form navbar-right">
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <button id="logout-button" type="submit" class="btn btn-danger">Logout</button>
     </form>
-    <form method="get" th:action="@{/authorization-code/callback}" th:unless="${#authorization.expression('isAuthenticated()')}">
+    <form method="get" th:action="@{/oauth2/authorization/okta}" th:unless="${#authorization.expression('isAuthenticated()')}">
         <button id="login-button" class="btn btn-primary" type="submit">Login</button>
     </form>
 </nav>
@@ -30,7 +30,7 @@
             <th>Course</th>
             <th>Teacher</th>
             <th>Year</th>
-            <th>Number of studends</th>
+            <th>Number of students</th>
         </tr>
         </thead>
         <tbody>

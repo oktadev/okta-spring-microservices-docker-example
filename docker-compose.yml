@@ -10,8 +10,8 @@ services:
       - ./config-data:/var/config-data
     environment:
       - JAVA_OPTS=
-         -DEUREKA_SERVER=http://discovery:8761/eureka
-         -Dspring.cloud.config.server.native.searchLocations=/var/config-data
+        -DEUREKA_SERVER=http://discovery:8761/eureka
+        -Dspring.cloud.config.server.native.searchLocations=/var/config-data
     depends_on:
       - discovery
     ports:
@@ -29,6 +29,7 @@ services:
     environment:
       - JAVA_OPTS=
         -DEUREKA_SERVER=http://discovery:8761/eureka
+        -Dspring.profiles.active=production
     restart: on-failure
     depends_on:
       - discovery
