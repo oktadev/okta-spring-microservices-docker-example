@@ -11,7 +11,7 @@
 	<groupId>com.okta.developer.docker_microservices</groupId>
 	<artifactId>config</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>confg</name>
+	<name>config</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

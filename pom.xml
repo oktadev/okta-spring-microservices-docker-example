@@ -11,7 +11,9 @@
 	<name>parent-project</name>
 
 	<modules>
+		<module>config</module>
+		<module>discovery</module>
 		<module>school-service</module>
-		<module>school-ui</module>	
+		<module>school-ui</module>
 	</modules>
 </project>

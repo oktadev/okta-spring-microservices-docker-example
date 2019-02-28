@@ -1,4 +1,4 @@
-package com.okta.developer.docker_microservices.confg;
+package com.okta.developer.docker_microservices.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 
 @SpringBootApplication
 @EnableConfigServer
-public class ConfgApplication {
+public class ConfigApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConfgApplication.class, args);
+		SpringApplication.run(ConfigApplication.class, args);
 	}
 
 }
