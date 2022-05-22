@@ -1,0 +1,43 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'org.springframework.boot'
+    id 'com.palantir.docker'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url('https://repo.spring.io/milestone') }
+}
+
+group = 'com.okta.developer.docker_microservices'
+version = '0.0.1-SNAPSHOT'
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+// see also: buildSrc/build.gradle
+dependencies {
+    implementation platform('org.springframework.boot:spring-boot-dependencies:2.1.3.RELEASE')
+    implementation platform('org.springframework.cloud:spring-cloud-dependencies:Greenwich.SR1')
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+docker {
+    // image name
+    name 'developer.okta.com/microservice-docker-' + project.name + ':' + project.version
+    dockerfile file(rootProject.projectDir.toPath().resolve('Dockerfile'))
+    files tasks.bootJar.outputs
+    buildArgs(['JAR': tasks.bootJar.outputs.files.singleFile.name])
+    dependsOn bootJar
+}

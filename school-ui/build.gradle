@@ -1,0 +1,24 @@
+plugins {
+    id 'com.okta.developer.docker_microservices.conventions'
+}
+
+group = 'com.okta.developer.docker_microservices'
+version = '0.0.1-SNAPSHOT'
+description = 'school-ui'
+
+dependencies {
+    annotationProcessor 'org.projectlombok:lombok:' + property('lombokVersion')
+    compileOnly 'org.projectlombok:lombok:' + property('lombokVersion')
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+
+    implementation 'com.okta.spring:okta-spring-boot-starter:1.1.0'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
