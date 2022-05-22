@@ -1,0 +1,5 @@
+rootProject.name = 'spring-microservices-security'
+include 'config'
+include 'discovery'
+include 'school-service'
+include 'school-ui'

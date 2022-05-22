@@ -1,0 +1,16 @@
+plugins {
+    id 'com.okta.developer.docker_microservices.conventions'
+}
+
+group = 'com.okta.developer.docker_microservices'
+version = '0.0.1-SNAPSHOT'
+description = 'discovery'
+
+dependencies {
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.2'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}

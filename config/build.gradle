@@ -1,0 +1,13 @@
+plugins {
+    id 'com.okta.developer.docker_microservices.conventions'
+}
+
+group = 'com.okta.developer.docker_microservices'
+version = '0.0.1-SNAPSHOT'
+description = 'config'
+
+dependencies {
+    implementation 'org.springframework.cloud:spring-cloud-config-server'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
